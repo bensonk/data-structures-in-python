@@ -15,12 +15,3 @@ class Stack(object):
       return self.data[len(self.data)-1]
     else:
       return None
-
-if __name__ == "__main__":
-  s = Stack()
-
-  for i in range(10):
-    s.push(i)
-
-  while(s.peek() != None):
-    print s.pop()
