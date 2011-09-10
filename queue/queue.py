@@ -15,13 +15,3 @@ class Queue(object):
       return self.data[-1]
     else:
       return None
-
-
-if __name__ == "__main__":
-  q = Queue()
-
-  for i in range(10):
-    q.push(i)
-
-  while(q.peek() != None):
-    print q.pop()
