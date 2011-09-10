@@ -2,11 +2,19 @@
 
 class HashTable(object):
   def __init__(self, size=100):
-    self.data = [None] * size
+    self.data = [ list() for x in range(size) ]
+    self.size = size
 
-  def add(self, item):
-    # TODO
+  def add(self, key, item):
+    l = self.data[hash(key) % self.size]
+    for i, tup in enumerate(l):
+      if tup[0] == key:
+        del l[i]
+        break
+    l.append((key, item))
 
-if __name__ == "__main__":
-  h = HashTable()
-  print h.data
+  def get(self, key):
+    for k, v in self.data[hash(key) % self.size]:
+      if k == key:
+        return v
+    return None
